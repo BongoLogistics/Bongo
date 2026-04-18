@@ -614,13 +614,10 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-6 mb-24 w-full bg-[#F3F3F3] rounded-[2rem] p-12 md:p-20 flex flex-col items-center text-center relative overflow-hidden">
         <SvgAppMockup className="w-24 h-24 mb-8 drop-shadow-2xl z-10" />
         <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black z-10">Logistics in your pocket</h2>
-        <p className="mb-10 text-gray-600 max-w-lg mx-auto text-lg z-10">Download the Bongo app (powered by Movyra) to book, track, and manage deliveries on the go.</p>
+        <p className="mb-10 text-gray-600 max-w-lg mx-auto text-lg z-10">Download the Movyra app (powered by Bongo) to book, track, and manage your rides & deliveries on the go.</p>
         <div className="flex justify-center gap-4 z-10">
           <button className="bg-black text-white px-8 py-4 rounded-lg font-bold hover:bg-gray-800 transition-colors">
-            App Store
-          </button>
-          <button className="bg-black text-white px-8 py-4 rounded-lg font-bold hover:bg-gray-800 transition-colors">
-            Google Play
+            Get it on Google Play Store now
           </button>
         </div>
       </section>
