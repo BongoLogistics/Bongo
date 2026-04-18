@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, Eye, EyeOff, X, Check } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Eye, EyeOff, X, Check, ChevronDown } from 'lucide-react';
 import { auth, googleProvider } from '../../services/firebase';
 import { signInWithPopup } from 'firebase/auth';
 
@@ -65,11 +65,11 @@ export default function Auth() {
     }
   };
 
-  // Success Redirect
+  // SUCCESS REDIRECT: Updated strictly to point to /dashboard
   useEffect(() => {
     if (step === 7) {
       const timer = setTimeout(() => {
-        navigate('/');
+        navigate('/dashboard');
       }, 2000);
       return () => clearTimeout(timer);
     }
