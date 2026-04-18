@@ -76,17 +76,26 @@ export default function Auth() {
   }, [step, navigate]);
 
   return (
-    <div className="min-h-screen bg-white font-sans flex flex-col">
-      {/* Top Header - Always Black */}
-      <header className="h-16 bg-black flex items-center px-4 md:px-6 z-50">
+    /* Changed to fixed full-screen overlay to strictly hide global header/footer */
+    <div className="fixed inset-0 z-[9999] bg-white font-sans flex flex-col overflow-y-auto">
+      
+      {/* Top Header - Hidden as strictly requested */}
+      <header className="hidden h-16 bg-black items-center px-4 md:px-6 z-50">
         <span className="text-white text-2xl font-bold tracking-tight cursor-pointer" onClick={() => navigate('/')}>Bongo</span>
       </header>
 
-      <main className="flex-1 flex flex-col relative w-full">
+      <main className="flex-1 flex flex-col relative w-full min-h-screen">
         
+        {/* Absolute back/close button since header is hidden */}
+        {step === 1 && (
+           <button onClick={() => navigate('/')} className="absolute top-6 left-6 p-2 hover:bg-gray-100 rounded-full transition-colors z-50">
+             <X className="w-6 h-6 text-black" />
+           </button>
+        )}
+
         {/* STEP 1: Initial Email/Phone Input */}
         {step === 1 && (
-          <div className="max-w-[400px] w-full mx-auto pt-12 px-6 flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-300">
+          <div className="max-w-[400px] w-full mx-auto pt-24 px-6 flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-300">
             <h1 className="text-2xl font-medium mb-6 text-black">What's your phone number or email?</h1>
             
             <form onSubmit={(e) => { e.preventDefault(); emailOrPhone ? setStep(2) : null; }}>
@@ -131,7 +140,7 @@ export default function Auth() {
 
         {/* STEP 2: Confirm Information */}
         {step === 2 && (
-          <div className="max-w-[500px] w-full mx-auto pt-12 px-6 flex flex-col animate-in fade-in slide-in-from-right-8 duration-300">
+          <div className="max-w-[500px] w-full mx-auto pt-24 px-6 flex flex-col animate-in fade-in slide-in-from-right-8 duration-300">
             <h1 className="text-2xl font-bold mb-8 text-black text-center">Confirm your information</h1>
             
             <form onSubmit={(e) => { e.preventDefault(); setStep(3); }} className="space-y-4">
@@ -214,7 +223,7 @@ export default function Auth() {
 
         {/* STEP 4: 4-Digit OTP Entry */}
         {step === 4 && (
-          <div className="max-w-[400px] w-full mx-auto pt-12 px-6 flex flex-col animate-in fade-in slide-in-from-right-8 duration-300">
+          <div className="max-w-[400px] w-full mx-auto pt-24 px-6 flex flex-col animate-in fade-in slide-in-from-right-8 duration-300">
             <h1 className="text-2xl font-bold mb-2 text-black">Enter the 4-digit code sent via SMS at ********{phone.slice(-2) || '24'}.</h1>
             <button onClick={() => setStep(2)} className="text-left text-sm text-black underline decoration-1 underline-offset-4 mb-8 hover:text-gray-600 transition-colors w-max">
               Changed your mobile number?
@@ -297,7 +306,7 @@ export default function Auth() {
 
         {/* STEP 6: Password Entry */}
         {step === 6 && (
-          <div className="max-w-[400px] w-full mx-auto pt-12 px-6 flex flex-col animate-in fade-in slide-in-from-right-8 duration-300">
+          <div className="max-w-[400px] w-full mx-auto pt-24 px-6 flex flex-col animate-in fade-in slide-in-from-right-8 duration-300">
             <h1 className="text-2xl font-bold mb-8 text-black">Welcome back. Sign in to continue.</h1>
             
             <form onSubmit={(e) => { e.preventDefault(); setStep(7); }}>

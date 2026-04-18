@@ -5,6 +5,9 @@ import {
   Code, Activity, CheckCircle, Globe, Search, ArrowRight, Users
 } from 'lucide-react';
 
+// NEW INJECTION: Import Welcome Modal strictly as requested
+import WelcomeModal from '../../components/WelcomeModal';
+
 /* =========================================================================
    CUSTOM ISOMETRIC 3D SVG COMPONENTS (Strictly Replacing Lucide Line Icons)
    ========================================================================= */
@@ -226,10 +229,10 @@ export default function Home() {
   // 6. Capacity Validator Logic (Real Math)
   const calculateVehicle = () => {
     const volume = packLength * packWidth * packHeight;
-    if (packWeight > 1000 || volume > 1000000) return { name: "Heavy Truck", icon: SvgTruckIsometric };
-    if (packWeight > 500 || volume > 500000) return { name: "Tata Ace", icon: SvgCarIsometric };
-    if (packWeight > 50 || volume > 50000) return { name: "3-Wheeler", icon: SvgBikeIsometric };
-    return { name: "2-Wheeler", icon: SvgBikeIsometric };
+    if (packWeight > 1000 || volume > 1000000) return { name: "Heavy Truck", iconColor: "text-gray-800", icon: SvgTruckIsometric };
+    if (packWeight > 500 || volume > 500000) return { name: "Tata Ace", iconColor: "text-gray-800", icon: SvgCarIsometric };
+    if (packWeight > 50 || volume > 50000) return { name: "3-Wheeler", iconColor: "text-gray-800", icon: SvgBikeIsometric };
+    return { name: "2-Wheeler", iconColor: "text-gray-800", icon: SvgBikeIsometric };
   };
   const SuggestedVehicleIcon = calculateVehicle().icon;
 
@@ -254,6 +257,9 @@ export default function Home() {
   return (
     <div className="w-full bg-white flex flex-col items-center font-sans text-black overflow-hidden">
       
+      {/* INJECTED WELCOME MODAL */}
+      <WelcomeModal />
+
       {/* SECTION 1: Live Network Status Bar */}
       <div className={`w-full py-1.5 px-4 text-xs font-bold text-center text-white flex items-center justify-center gap-2 z-50 fixed top-0 ${isOnline ? 'bg-green-600 hidden' : 'bg-red-600 animate-pulse'}`}>
         {!isOnline && <><WifiOff className="w-4 h-4" /> You are offline. Cached routing data is currently active.</>}
@@ -548,7 +554,7 @@ export default function Home() {
             </p>
             <div className="flex items-center gap-6 mb-12">
                <Link to="/partner" className="bg-black text-white px-6 py-3 rounded-lg font-bold hover:bg-gray-800 transition-colors">Get started</Link>
-               <Link to="/login" className="text-black font-semibold underline decoration-2 underline-offset-4 hover:text-gray-600 transition-colors">Already have an account? Sign in</Link>
+               <Link to="/auth?intent=login" className="text-black font-semibold underline decoration-2 underline-offset-4 hover:text-gray-600 transition-colors">Already have an account? Sign in</Link>
             </div>
             
             <div className="w-full space-y-6 pt-8 border-t border-gray-200">
