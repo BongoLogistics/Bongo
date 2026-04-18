@@ -89,7 +89,7 @@ export default function Header() {
                 <Globe className="w-4 h-4" /> EN
               </button>
               <Link to="/help" className="text-sm font-semibold hover:text-gray-300 transition-colors">Help</Link>
-              <Link to="/login" className="text-sm font-semibold hover:text-gray-300 transition-colors">Log in</Link>
+              <Link to="/auth?intent=login" className="text-sm font-semibold hover:text-gray-300 transition-colors">Log in</Link>
             </div>
 
             {/* Strict White Pill CTA Dropdown Wrapper */}
@@ -98,26 +98,26 @@ export default function Header() {
               onMouseEnter={() => setSignUpDropdown(true)}
               onMouseLeave={() => setSignUpDropdown(false)}
             >
-              <Link to="/signup" className="bg-white text-black px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-200 transition-colors">
+              <Link to="/auth?intent=signup" className="bg-white text-black px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-200 transition-colors">
                 Sign up
               </Link>
               
               {/* Custom SVG Sign-Up Dropdown matching reference exactly */}
               {signUpDropdown && (
                 <div className="absolute top-16 right-0 w-[280px] bg-white text-black shadow-2xl py-3 rounded-2xl border border-gray-100 animate-in fade-in slide-in-from-top-2">
-                  <Link to="/signup/ride" className="flex items-center justify-between px-6 py-4 hover:bg-gray-100 transition-colors">
+                  <Link to="/auth?intent=ride" className="flex items-center justify-between px-6 py-4 hover:bg-gray-100 transition-colors">
                     <span className="text-xl font-bold">Ride</span>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="19" r="3"></circle><path d="M18 8v2a4 4 0 0 1-4 4H10a4 4 0 0 0-4 4v1"></path></svg>
                   </Link>
-                  <Link to="/signup/drive" className="flex items-center justify-between px-6 py-4 hover:bg-gray-100 transition-colors">
+                  <Link to="/auth?intent=drive" className="flex items-center justify-between px-6 py-4 hover:bg-gray-100 transition-colors">
                     <span className="text-xl font-bold">Drive</span>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle><path d="M12 15v7"></path><path d="M10 10.5 4 6"></path><path d="M14 10.5 20 6"></path></svg>
                   </Link>
-                  <Link to="/signup/eats" className="flex items-center justify-between px-6 py-4 hover:bg-gray-100 transition-colors">
+                  <Link to="/auth?intent=eats" className="flex items-center justify-between px-6 py-4 hover:bg-gray-100 transition-colors">
                     <span className="text-xl font-bold">Bongo Eats</span>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg>
                   </Link>
-                  <Link to="/signup/business" className="flex items-center justify-between px-6 py-4 hover:bg-gray-100 transition-colors">
+                  <Link to="/auth?intent=business" className="flex items-center justify-between px-6 py-4 hover:bg-gray-100 transition-colors">
                     <span className="text-xl font-bold">Business</span>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 7h20V4H2v3Z"></path><path d="M3 7v13a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7"></path><path d="M8 21V11h8v10"></path></svg>
                   </Link>
@@ -154,8 +154,8 @@ export default function Header() {
             </Link>
             
             <div className="mt-4 border-t border-gray-800 pt-8 flex flex-col gap-6">
-              <Link to="/login" className="text-xl font-semibold text-white">Log in</Link>
-              <Link to="/signup" className="text-xl font-semibold text-white">Sign up</Link>
+              <Link to="/auth?intent=login" className="text-xl font-semibold text-white">Log in</Link>
+              <Link to="/auth?intent=signup" className="text-xl font-semibold text-white">Sign up</Link>
               <Link to="/help" className="text-xl font-semibold text-white">Help</Link>
               <button onClick={() => setIsLangOpen(true)} className="flex items-center gap-2 text-xl font-semibold text-white w-max">
                 <Globe className="w-6 h-6" /> English
