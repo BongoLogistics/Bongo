@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { 
   Truck, MapPin, Package, ShieldCheck, WifiOff, Navigation, 
   Zap, Clock, ChevronDown, ChevronUp, Code, Smartphone, Activity, 
-  CheckCircle, Globe, Search, ArrowRight, Box, Ruler, Calendar
+  CheckCircle, Globe, Search, ArrowRight, Box, Ruler, Calendar, Users
 } from 'lucide-react';
 
 export default function Home() {
