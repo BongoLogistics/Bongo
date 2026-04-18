@@ -6,6 +6,8 @@ import Pricing from './pages/Pricing';
 import Booking from './pages/Booking';
 import Tracking from './pages/Tracking';
 import Auth from './pages/Auth';
+import Dashboard from './pages/Dashboard';
+import Activity from './pages/Activity';
 
 export default function App() {
   return (
@@ -19,6 +21,8 @@ export default function App() {
             <Route path="/book" element={<Booking />} />
             <Route path="/track" element={<Tracking />} />
             <Route path="/auth" element={<Auth />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/activity" element={<Activity />} />
           </Routes>
         </main>
         <Footer />
