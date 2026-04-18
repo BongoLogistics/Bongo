@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+@layer base {
+  body {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+  }
+}
+
 @layer utilities {
   .radial-bg {
     background-image: radial-gradient(circle at center, #e5e7eb 1px, transparent 1px);

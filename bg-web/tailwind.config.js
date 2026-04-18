@@ -7,10 +7,16 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        serif: ['"Playfair Display"', 'serif'],
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
+        bongo: {
+          orange: '#E36A41',
+          black: '#000000',
+          white: '#FFFFFF',
+          lightGray: '#F3F3F3',
+          darkGray: '#1A1A1A'
+        },
         movyra: {
           dark: '#121212',
           blue: '#2563EB',
